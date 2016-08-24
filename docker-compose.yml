@@ -1,0 +1,15 @@
+jenkins:
+  #image: jenkins
+  build: ./Dockerfiles/jenkins
+  container_name: jenkins
+  volumes:
+    - /jenkins:/var/jenkins_home
+    - /db_and_files:/db_and_files
+    - /certs:/certs
+  ports:
+    - 8080:8080
+    - 50000:50000
+    - 80:80
+    - 443:443
+  restart: always
+  privileged: true
